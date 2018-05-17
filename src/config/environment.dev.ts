@@ -2,12 +2,12 @@ import { LanguageType } from 'store/reducers/locale/langugeType'
 
 export const environment = {
   firebase: {
-    apiKey: 'AIzaSyAHOZ7rWGDODCwJMB3WIt63CAIa90qI-jg',
-    authDomain: 'test-4515a.firebaseapp.com',
-    databaseURL: 'https://test-4515a.firebaseio.com',
-    projectId: 'test-4515a',
-    storageBucket: 'test-4515a.appspot.com',
-    messagingSenderId: '964743099489'
+      apiKey: 'AIzaSyBUrvyVzTg7pBwdFqSloDS_NqJAkiYK0xw',
+      authDomain: 'front-cliner.firebaseapp.com',
+      databaseURL: 'https://front-cliner.firebaseio.com',
+      projectId: 'front-cliner',
+      storageBucket: 'front-cliner.appspot.com',
+      messagingSenderId: '897599731766'
   },
   settings: {
     enabledOAuthLogin: true,

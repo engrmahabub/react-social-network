@@ -23,3 +23,5 @@ yarn-error.log*
 .vscode/
 src/data/awsClient
 src/components/AWS.tsx
+
+.idea
