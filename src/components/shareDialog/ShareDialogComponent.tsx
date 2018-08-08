@@ -6,6 +6,7 @@ import SvgImage from '@material-ui/icons/Image'
 import { withStyles } from '@material-ui/core/styles'
 import { getTranslate, getActiveLanguage } from 'react-localize-redux'
 import classNames from 'classnames'
+import {Map, List} from 'immutable'
 
 import {
   FacebookShareButton,
@@ -107,7 +108,8 @@ export class ShareDialogComponent extends Component<IShareDialogComponentProps, 
                   onShareWindowClose={onClose}
                   url={`${location.origin}/${post.get('ownerUserId')}/posts/${post.get('id')}`}
                   quote={post.get('body')}
-                  hashtag={`#${post.getIn(['tags', 0], '')}`}>
+                  hashtag={post.get('tags', List<string>([])).count() > 0 ?  `#${post.getIn(['tags', 0], 'hashtag') }` : null}
+                  >
                   <MenuItem >
                     <ListItemIcon classes={{ root: classes.networkShare }}>
                       <FacebookIcon
@@ -187,9 +189,6 @@ export class ShareDialogComponent extends Component<IShareDialogComponentProps, 
 
 /**
  * Map dispatch to props
- * @param  {func} dispatch is the function to dispatch action to reducers
- * @param  {object} ownProps is the props belong to component
- * @return {object}          props of component
  */
 const mapDispatchToProps = (dispatch: any, ownProps: IShareDialogComponentProps) => {
   return {
@@ -199,9 +198,6 @@ const mapDispatchToProps = (dispatch: any, ownProps: IShareDialogComponentProps)
 
 /**
  * Map state to props
- * @param  {object} state is the obeject from redux store
- * @param  {object} ownProps is the props belong to component
- * @return {object}          props of component
  */
 const mapStateToProps = (state: any, ownProps: IShareDialogComponentProps) => {
   return {
